@@ -57,6 +57,7 @@
       sysconf = "nvim ~/nix-config/nixos/configuration.nix";
       gitadd = "git add .";
       gitcom = "git commit -m";
+      gitpush = "git push -u origin main";
     };
     interactiveShellInit = ''
       set -g fish_greeting
