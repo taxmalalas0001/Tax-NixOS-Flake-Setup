@@ -25,7 +25,7 @@
     fd
   ];
 
-  # Flatpak
+  # Flatpak configuration (package is in configuration.nix)
   xdg.enable = true;
 
   home.sessionVariables = {
@@ -36,11 +36,20 @@
   };
 
 
-  # Neovim Enable
+  # Neovim With LazyVim
   programs.neovim = {
       enable = true;
       defaultEditor = true;
  };
+
+  home.file.".config/nvim" = {
+    source = ../dotfiles/nvim;
+    recursive = true;
+    # Auto-nuke state if config changes (fresh plugins)
+    onChange = ''
+      rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
+    '';
+  };
 
   # Fish tweaks
   programs.fish = {
