@@ -14,9 +14,14 @@
     tree
     python314
     python313Packages.pip
-    python3Packages.pywal
+    pywal
     imagemagick
-    vlc 
+    vlc
+    swww
+    hyprshot
+    hyprpicker
+    waybar
+    dunst
     kitty
     sc-controller
   ] ++ [ # LazyVim Dependencies
@@ -48,6 +53,7 @@
   home.file.".config/hypr" = {
     source = ../dotfiles/hypr;
     recursive = true;
+    force = true;
   };
 
   # Declarative Starship config
