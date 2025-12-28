@@ -42,13 +42,9 @@
       defaultEditor = true;
  };
 
-  home.file.".config/nvim" = {
+  home.file."~/.config/nvim" = {
     source = ../dotfiles/nvim;
     recursive = true;
-    # Auto-nuke state if config changes (fresh plugins)
-    onChange = ''
-      rm -rf ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
-    '';
   };
 
   # Fish tweaks
@@ -59,6 +55,8 @@
       hmconf = "nvim ~/nix-config/home-manager/home.nix";
       flakeconf = "nvim ~/nix-config/flake.nix";
       sysconf = "nvim ~/nix-config/nixos/configuration.nix";
+      gitadd = "git add .";
+      gitcom = "git commit -m";
     };
     interactiveShellInit = ''
       set -g fish_greeting
