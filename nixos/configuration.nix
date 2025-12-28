@@ -5,7 +5,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  # Your bootloader
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -37,10 +37,17 @@
     LC_TIME = "el_GR.UTF-8";
   };
 
-  # GNOME + GDM
+  # Hyprland + Gnome Display Manager
   services.xserver.enable = true;
+  programs.hyprland {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  };
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+
+  # Make Apps Use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Keymap
   services.xserver.xkb.layout = "us";
