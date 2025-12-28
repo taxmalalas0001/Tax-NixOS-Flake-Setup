@@ -14,6 +14,9 @@
     tree
     python314
     python313Packages.pip
+    python3Packages.pywal
+    imagemagick
+    vlc 
     kitty
     sc-controller
   ] ++ [ # LazyVim Dependencies
@@ -42,7 +45,7 @@
   };
 
   # Declarative Hyprland config
-  home.file."~/.config/hypr" = {
+  home.file.".config/hypr" = {
     source = ../dotfiles/hypr;
     recursive = true;
   };
