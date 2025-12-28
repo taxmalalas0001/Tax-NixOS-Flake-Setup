@@ -13,9 +13,9 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    zen-browser = {
+    zen-browser = { # Zen Browser import (package is in home.nix)
           url = "github:0xc000022070/zen-browser-flake";
-          inputs.nixpkgs.follows = "nixpkgs";  # Shares your stable 25.11 pkgs
+          inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -35,14 +35,14 @@
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # My custom packages
+    # Custom packages
     # Accessible through 'nix build', 'nix shell', etc
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    # Formatter for My nix files, available through 'nix fmt'
+    # Formatter for nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    # My custom packages and modifications, exported as overlays
+    # Custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
@@ -57,7 +57,6 @@
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          # > Our main nixos configuration file <
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
         ];
@@ -67,7 +66,6 @@
     # Standalone home-manager configuration entrypoint
     homeConfigurations = {
       "taxmalalas0001@nixos-laptop" = home-manager.lib.homeManagerConfiguration {
-        # Home-manager requires 'pkgs' instance
         pkgs = nixpkgs.legacyPackages.x86_64-linux; 
         extraSpecialArgs = {inherit inputs;};
         modules = [
