@@ -35,6 +35,16 @@
       + "$XDG_DATA_DIRS";
   };
 
+  # Declarative Kitty config (Orange/Orwellian Theme)
+  home.file."~/.config/kitty" = {
+    source = ../dotfiles/kitty;
+    recursive = true;
+  };
+
+  # Declarative Starship config
+  home.file."~/.config/starship.toml" = {
+    source = ../dotfiles/starship/starship.toml;
+  };
 
   # Neovim With LazyVim
   programs.neovim = {
