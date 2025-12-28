@@ -16,12 +16,11 @@
     zen-browser = { # Zen Browser import (package is in home.nix)
           url = "github:0xc000022070/zen-browser-flake";
           inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprland = { # Include Hyprland (Default WM For the Dotfiles)
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs"
-      };
     };
+
+    # Include Hyprland (Default WM for these Dotfiles)
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {

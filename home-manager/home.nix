@@ -41,6 +41,12 @@
     recursive = true;
   };
 
+  # Declarative Hyprland config
+  home.file."~/.config/hypr" = {
+    source = ../dotfiles/hypr;
+    recursive = true;
+  };
+
   # Declarative Starship config
   home.file."~/.config/starship.toml" = {
     source = ../dotfiles/starship/starship.toml;
