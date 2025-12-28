@@ -41,10 +41,10 @@
   in {
     # Custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${stdenv.hostPlatform.system});
     # Formatter for nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${stdenv.hostPlatform.system}.alejandra);
 
     # Custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
@@ -56,7 +56,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#My-hostname'
+    # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};

@@ -6,7 +6,7 @@
 
   # User packages
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlaform.system}.default
     git
     htop
     curl
@@ -16,12 +16,7 @@
     python313Packages.pip
     pywal
     imagemagick
-    vlc
-    swww
-    hyprshot
-    hyprpicker
-    waybar
-    dunst
+    vlc 
     kitty
     sc-controller
   ] ++ [ # LazyVim Dependencies
