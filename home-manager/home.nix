@@ -47,46 +47,46 @@
   };
 
   # Declarative Kitty config (Orange/Orwellian Theme)
-  home.file."~/.config/kitty" = {
+  home.file.".config/kitty" = {
     source = ../dotfiles/kitty;
     recursive = true;
   };
 
   # Declarative Waybar config
-  home.file."~/.config/waybar" = {
+  home.file.".config/waybar" = {
     source = ../dotfiles/waybar;
     recursive = true;
     };
 
   # Declarative Wofi config
-  home.file."~/.config/wofi" = {
+  home.file.".config/wofi" = {
     source = ../dotfiles/wofi;
     };
 
   # Declarative Hyprlock config
-  home.file."~/.config/hypr/hyprlock.conf" = {
+  home.file.".config/hypr/hyprlock.conf" = {
       source = ../dotfiles/hypr/hyprlock.conf;
     };
 
   # Declarative Dunst config
-  home.file."~/.config/dunst" = {
+  home.file.".config/dunst" = {
     source = ../dotfiles/dunst;
   };
 
   # Declarative Hyprland config
-  home.file."~/.config/hypr" = {
+  home.file.".config/hypr" = {
     source = ../dotfiles/hypr;
     recursive = true;
     force = true;
   };
 
   # Declarative Starship config
-  home.file."~/.config/starship.toml" = {
+  home.file.".config/starship.toml" = {
     source = ../dotfiles/starship/starship.toml;
   };
  
   # Declaratively Include Backgrounds
-  home.file."~/.config/backgrounds/" = {
+  home.file.".config/backgrounds" = {
     source = ../dotfiles/backgrounds;
     recursive = true;
   };
@@ -97,7 +97,7 @@
       defaultEditor = true;
  };
 
-  home.file."~/.config/nvim" = {
+  home.file.".config/nvim" = {
     source = ../dotfiles/nvim;
     recursive = true;
   };
