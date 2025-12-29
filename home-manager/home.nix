@@ -18,6 +18,7 @@
     gimp
     vlc
     kitty
+    departure-mono
     sc-controller
   ] ++ [ # Hyprland Dependencies
     hyprlock
@@ -25,6 +26,7 @@
     swww
     wofi
     grim
+    font-awesome
     waybar
     dunst
   ] ++ [ # LazyVim Dependencies
@@ -101,7 +103,6 @@
   home.file.".config/nvim" = {
     source = ../dotfiles/nvim;
     recursive = true;
-    force = true;
   };
 
   # Fish tweaks
