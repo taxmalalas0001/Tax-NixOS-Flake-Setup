@@ -47,6 +47,7 @@
   };
 
   services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Make Apps Use Wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

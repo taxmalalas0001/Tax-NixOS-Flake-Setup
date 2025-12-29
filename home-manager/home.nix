@@ -6,7 +6,7 @@
 
   # User packages
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlaform.system}.default
+    inputs.zen-browser.packages.${pkgs.system}.default
     git
     htop
     curl
@@ -16,7 +16,7 @@
     python313Packages.pip
     pywal
     imagemagick
-    vlc 
+    vlc
     kitty
     sc-controller
   ] ++ [ # LazyVim Dependencies
@@ -45,7 +45,7 @@
   };
 
   # Declarative Hyprland config
-  home.file.".config/hypr" = {
+  home.file."~/.config/hypr" = {
     source = ../dotfiles/hypr;
     recursive = true;
     force = true;
