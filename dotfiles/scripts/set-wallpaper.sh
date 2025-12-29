@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-WALLPAPER_DIR="$HOME/nix-config/dotfiles/backgrounds"
+WALLPAPER_DIR="$HOME/nix-config/dotfiles/backgrounds/"
 
 # Find all images
 WALLPAPERS=($WALLPAPER_DIR/*.{jpg,jpeg,png,JPG,JPEG,PNG} 2>/dev/null)
