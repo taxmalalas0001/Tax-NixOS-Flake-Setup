@@ -15,6 +15,14 @@
   # Hostname
   networking.hostName = "nixos-laptop";
  
+  # use Nh as system rebuilder
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 1d --keep 3";
+    flake = "/home/taxmalalas0001/nix-config";
+  };
+
   # Enable Fish
   programs.fish.enable = true;
 
@@ -37,15 +45,8 @@
     LC_TIME = "el_GR.UTF-8";
   };
 
-  # Hyprland + Gnome Display Manager
+  # Gnome + XWayland 
   services.xserver.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 

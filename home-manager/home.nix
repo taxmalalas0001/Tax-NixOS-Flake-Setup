@@ -16,19 +16,12 @@
     python313Packages.pip
     imagemagick
     gimp
+    git-lfs
     vlc
     kitty
     departure-mono
     sc-controller
-  ] ++ [ # Hyprland Dependencies
-    hyprlock
-    pywal
-    swww
-    wofi
-    grim
     font-awesome
-    waybar
-    dunst
   ] ++ [ # LazyVim Dependencies
     gcc
     gnumake
@@ -54,44 +47,9 @@
     recursive = true;
   };
 
-  # Declarative Waybar config
-  home.file.".config/waybar" = {
-    source = ../dotfiles/waybar;
-    recursive = true;
-    force = true;
-    };
-
-  # Declarative Wofi config
-  home.file.".config/wofi" = {
-    source = ../dotfiles/wofi;
-    };
-
-  # Declarative Hyprlock config
-  home.file.".config/hypr/hyprlock.conf" = {
-      source = ../dotfiles/hypr/hyprlock.conf;
-    };
-
-  # Declarative Dunst config
-  home.file.".config/dunst" = {
-    source = ../dotfiles/dunst;
-  };
-
-  # Declarative Hyprland config
-  home.file.".config/hypr" = {
-    source = ../dotfiles/hypr;
-    recursive = true;
-    force = true;
-  };
-
   # Declarative Starship config
   home.file.".config/starship.toml" = {
     source = ../dotfiles/starship/starship.toml;
-  };
- 
-  # Declaratively Include Backgrounds
-  home.file.".config/backgrounds" = {
-    source = ../dotfiles/backgrounds;
-    recursive = true;
   };
 
   # Neovim With LazyVim
@@ -109,13 +67,13 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#nixos-laptop";
+      rebuild = "nh os switch /home/taxmalalas0001/nix-config";
       hmconf = "nvim ~/nix-config/home-manager/home.nix";
       flakeconf = "nvim ~/nix-config/flake.nix";
       sysconf = "nvim ~/nix-config/nixos/configuration.nix";
       gitadd = "git add .";
       gitcom = "git commit -m";
-      gitpush = "git push -u origin main";
+      gitpush = "git push";
     };
     interactiveShellInit = ''
       set -g fish_greeting
