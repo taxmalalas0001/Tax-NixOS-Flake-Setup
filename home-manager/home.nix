@@ -56,6 +56,7 @@
   home.file.".config/waybar" = {
     source = ../dotfiles/waybar;
     recursive = true;
+    force = true;
     };
 
   # Declarative Wofi config
@@ -100,6 +101,7 @@
   home.file.".config/nvim" = {
     source = ../dotfiles/nvim;
     recursive = true;
+    force = true;
   };
 
   # Fish tweaks
