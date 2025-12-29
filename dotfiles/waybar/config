@@ -25,7 +25,7 @@
   },
 
   "clock": {
-    "format": "{:%a %b %d  %I:%M:%S %p}",
+    "format": "{:%I:%M:%S %p  %a %b %d}",
     "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt><small>{calendar}</small></tt>",
     "interval": 1
   },
@@ -48,8 +48,8 @@
   },
 
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "",
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": " ",
     "format-disconnected": "Disconnected ⚠"
   },
 
