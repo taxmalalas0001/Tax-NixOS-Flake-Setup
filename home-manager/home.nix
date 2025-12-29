@@ -14,11 +14,19 @@
     tree
     python314
     python313Packages.pip
-    pywal
     imagemagick
+    gimp
     vlc
     kitty
     sc-controller
+  ] ++ [ # Hyprland Dependencies
+    hyprlock
+    pywal
+    swww
+    wofi
+    grim
+    waybar
+    dunst
   ] ++ [ # LazyVim Dependencies
     gcc
     gnumake
@@ -44,6 +52,27 @@
     recursive = true;
   };
 
+  # Declarative Waybar config
+  home.file."~/.config/waybar" = {
+    source = ../dotfiles/waybar;
+    recursive = true;
+    };
+
+  # Declarative Wofi config
+  home.file."~/.config/wofi" = {
+    source = ../dotfiles/wofi;
+    };
+
+  # Declarative Hyprlock config
+  home.file."~/.config/hypr/hyprlock.conf" = {
+      source = ../dotfiles/hypr/hyprlock.conf;
+    };
+
+  # Declarative Dunst config
+  home.file."~/.config/dunst" = {
+    source = ../dotfiles/dunst;
+  };
+
   # Declarative Hyprland config
   home.file."~/.config/hypr" = {
     source = ../dotfiles/hypr;
@@ -54,6 +83,12 @@
   # Declarative Starship config
   home.file."~/.config/starship.toml" = {
     source = ../dotfiles/starship/starship.toml;
+  };
+ 
+  # Declaratively Include Backgrounds
+  home.file."~/.config/backgrounds/" = {
+    source = ../dotfiles/backgrounds;
+    recursive = true;
   };
 
   # Neovim With LazyVim
