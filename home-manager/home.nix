@@ -15,13 +15,28 @@
     python314
     python313Packages.pip
     imagemagick
+    android-tools
     gimp
     git-lfs
     vlc
+    docker
+    docker-compose
     kitty
     departure-mono
     sc-controller
     font-awesome
+  ] ++ [ # make Dependencies
+  dtc 
+  ncurses
+  bison 
+  flex
+  bc
+  openssl
+  libelf
+  elfutils
+  zlib
+  perl
+  pkgsCross.aarch64-multiplatform.stdenv.cc
   ] ++ [ # LazyVim Dependencies
     gcc
     gnumake
