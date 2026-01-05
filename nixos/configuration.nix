@@ -5,7 +5,7 @@ let
     repo = "fallout-grub-theme";
     # Pin to a recent commit (check repo for latest)
     rev = "fcc680d166fa2a723365004df4b8736359d15a62";  # Update if needed
-    sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";  # Update with nix-prefetch-git if rev changes
+    sha256 = "sha256-dQYQYBL4RxxqCwN6V6DUiiPl7cQFNt/PH7ubpKA3YCg=";
   };
 in
 {
