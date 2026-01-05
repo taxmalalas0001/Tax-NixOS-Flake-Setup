@@ -1,12 +1,27 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+let
+  fallout-grub-theme = pkgs.fetchFromGitHub {
+    owner = "shvchk";
+    repo = "fallout-grub-theme";
+    # Pin to a recent commit (check repo for latest)
+    rev = "fcc680d166fa2a723365004df4b8736359d15a62";  # Update if needed
+    sha256 = "sha256-7kvLfD6Nz4cEMrmCA9yq4enyqVyqiTkVZV5y4RyUatU=";  # Update with nix-prefetch-git if rev changes
+  };
+in
+{
+  # GRUB Config
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";  # For EFI
+    efiSupport = true;
+    useOSProber = false;
+    theme = "${fallout-grub-theme}/theme.txt";
+  };
 
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
-
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Latest kernel
@@ -124,6 +139,10 @@
     enable = true;
     enable32Bit = true;  # Good for older/32-bit games
   };
+
+  # Install VirtualBox
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
  
   # Enable Steam 
   programs.steam = {
