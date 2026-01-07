@@ -122,9 +122,12 @@ in
   users.users.taxmalalas0001 = {
     isNormalUser = true;
     description = "Taxiarchis Tsairidis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
+
+  # Docker
+  virtualisation.docker.enable = true;
 
   # Enable Flatpak
   services.flatpak.enable = true;

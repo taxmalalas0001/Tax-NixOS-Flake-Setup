@@ -19,8 +19,6 @@
     gimp
     git-lfs
     vlc
-    docker
-    docker-compose
     kitty
     departure-mono
     sc-controller
