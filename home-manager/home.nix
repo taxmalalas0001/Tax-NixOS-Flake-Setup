@@ -58,6 +58,7 @@
   home.file.".config/kitty" = {
     source = ../dotfiles/kitty;
     recursive = true;
+    force = true;
   };
 
   # Declarative Starship config
