@@ -17,6 +17,7 @@
     imagemagick
     android-tools
     gimp
+    libreoffice
     git-lfs
     vlc
     kitty
@@ -43,6 +44,9 @@
     ripgrep
     fd
   ];
+
+  # Install VSCode
+  programs.vscode.enable = true;
 
   # Flatpak configuration (package is in configuration.nix)
   xdg.enable = true;

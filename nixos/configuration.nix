@@ -15,7 +15,10 @@ in
     device = "nodev";  # For EFI
     efiSupport = true;
     useOSProber = false;
-    theme = "${fallout-grub-theme}/theme.txt";
+    theme = fallout-grub-theme;
+    extraConfig = ''
+      GRUB_THEME="${fallout-grub-theme}/theme.txt"
+    '';
   };
 
   imports = [
@@ -64,9 +67,6 @@ in
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-
-  # Make Apps Use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Keymap
   services.xserver.xkb.layout = "us";
