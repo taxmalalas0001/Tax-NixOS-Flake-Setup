@@ -132,9 +132,6 @@ in
     dockerCompat = true;
   };
 
-  # Docker
-  virtualisation.docker.enable = true;
-
   # Enable Flatpak
   services.flatpak.enable = true;
 

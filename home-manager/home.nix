@@ -6,7 +6,7 @@
 
   # User packages
   home.packages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default
     git
     htop
     curl
