@@ -113,7 +113,7 @@ in
 
   # Home Manager integration
   home-manager = {
-#    useGlobalPkgs = true; # Shares system pkgs
+    useGlobalPkgs = true; # Shares system pkgs
     useUserPackages = true;    # Installs user packages to user profile
     extraSpecialArgs = { inherit inputs; };
     users.taxmalalas0001 = import ../home-manager/home.nix;
@@ -126,15 +126,22 @@ in
     shell = pkgs.fish;
   };
 
+  # Distrobox
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   # Docker
   virtualisation.docker.enable = true;
 
   # Enable Flatpak
   services.flatpak.enable = true;
 
-  # enable sdl2
+  # Packages As Dependencies
   environment.systemPackages = with pkgs; [
     sdl3  # Steam Input controller resurrection
+    distrobox
   ];
 
   # Graphics Acceleration
